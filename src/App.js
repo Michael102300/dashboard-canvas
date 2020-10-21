@@ -1,39 +1,24 @@
-import React from "react";
+import React, {useState,useEffect } from "react";
 import {
   BrowserRouter as Router,
   Switch,
-  Route,
-  Link
+  Route
 } from "react-router-dom";
-import Menu from './components/menu/Menu';
-
+import FirstChart from './components/Charts/FirstChart';
+import Dynamic from './components/Dynamic/Dynamic';
+import FourthChart from './components/Charts/FouthChart';
 
 export default function App() {
   return (
+    
     <Router>
         <Switch>
-          <Route path="/about">
-          <Menu />
-          </Route>
+          <Route path="/about" component={FirstChart}/>
           <Route path="/users">
-            <Users />
+            <Dynamic showComponent={true}/>
           </Route>
-          <Route path="/">
-            <Home />
-          </Route>
+          <Route path="/" component={FourthChart}/> 
         </Switch>
     </Router>
   );
-}
-
-function Home() {
-  return <h2>Home</h2>;
-}
-
-function About() {
-  return <h2>About</h2>;
-}
-
-function Users() {
-  return <h2>Users</h2>;
 }
